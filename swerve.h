@@ -101,7 +101,7 @@ void swerve(int x, int y) //moves pivot angle and gives speed based on hypotenus
 	getAngle(x,y);
 	if(currentAngle < pivotAngle)//when current pivot angle is less then intended angle from input, move the pivot angle
 	{
-			motor[frontRightPivot] = 50;
+			motor[frontRightPivot] = 50; //double check max motor value :)(-127 to 127)
 		  motor[frontLeftPivot] = 50;
 		  motor[backRightPivot] = 50;
 		  motor[backLeftPivot] = 50;
@@ -113,7 +113,7 @@ void swerve(int x, int y) //moves pivot angle and gives speed based on hypotenus
 		  motor[backRightPivot] = 0;
 		  motor[backLeftPivot] = 0;
 	}
-	motor[frontRightMotor] = swerveSpeed; //don't forget to invert :)
+	motor[frontRightMotor] = swerveSpeed; //don't forget to invert :) - manually or through initial setting -
 	motor[frontLeftMotor] = swerveSpeed;
 	motor[backRightMotor] = swerveSpeed;
 	motor[backLeftMotor] = swerveSpeed;
@@ -155,10 +155,10 @@ void turn(int speed) //turns fast or slower based on joystick input
 		  motor[backRightPivot] = 0;
 		  motor[backLeftPivot] = 0;
 	}
-	motor[frontRightMotor] = speed; //don't forget to invert :)
-	motor[frontLeftMotor] = speed;
+	motor[frontRightMotor] = speed; //left side has to be negative in order to turn - vetor diagram will help you understand why
+	motor[frontLeftMotor] = -speed; //don't forget to invert :)
 	motor[backRightMotor] = speed;
-	motor[backLeftMotor] = speed;
+	motor[backLeftMotor] = -speed;
 }
 
 void drive()
