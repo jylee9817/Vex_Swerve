@@ -41,7 +41,6 @@ task usercontrol()
 {
 	while (true)
 	{
-	  UserControlCodePlaceholderForTesting(); // Remove this function call once you have "real" code.
 	  drive();
 	}
 }
